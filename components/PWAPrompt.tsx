@@ -53,11 +53,11 @@ export default function PWAPrompt() {
           <div className="px-6 pb-8">
             {/* App icon and info */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex-shrink-0 bg-blue-50 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg flex-shrink-0 bg-blue-50 flex items-center justify-center">
                 <img
                   src="/logo.png"
                   alt="The Perfume Empire"
-                  className="w-14 h-14 object-contain"
+                  className="w-[72px] h-[72px] object-contain"
                 />
               </div>
               <div className="flex-1 min-w-0">

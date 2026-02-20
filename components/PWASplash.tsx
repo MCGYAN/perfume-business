@@ -31,7 +31,7 @@ export default function PWASplash() {
         <img
           src="/logo.png"
           alt="The Perfume Empire"
-          className="w-24 h-24 object-contain brightness-0 invert"
+          className="w-32 h-32 object-contain brightness-0 invert"
         />
       </div>
       <h1 className="text-white text-xl font-bold font-serif mb-2">The Perfume Empire</h1>

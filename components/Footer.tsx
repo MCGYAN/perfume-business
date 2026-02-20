@@ -54,7 +54,7 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-1 space-y-5">
               <Link href="/" className="inline-block group">
-                <img src={siteLogo} alt={siteName} className="h-12 w-auto max-w-[220px] object-contain group-hover:opacity-90 transition-opacity" />
+                <img src={siteLogo} alt={siteName} className="h-16 w-auto max-w-[280px] object-contain group-hover:opacity-90 transition-opacity" />
               </Link>
               <p className="text-white/60 leading-relaxed text-sm font-light">
                 {siteTagline}
