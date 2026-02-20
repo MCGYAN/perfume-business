@@ -382,45 +382,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Featured Collection — editorial storytelling */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-stone-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.08),transparent)]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <AnimatedSection className="order-2 lg:order-1">
-              <span className="text-xs font-semibold tracking-[0.25em] text-gray-400 uppercase">The Collection</span>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-3 mb-6 leading-tight">
-                Crafted for <span className="italic text-gray-500">lasting impression</span>
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed max-w-lg mb-8">
-                Each fragrance tells a story. We curate bottles that blend premium ingredients with distinct character — from fresh and clean to deep and sensual.
-              </p>
-              <Link
-                href="/shop"
-                className="inline-flex items-center gap-2 text-gray-900 font-medium border-b-2 border-gray-900 pb-1 hover:opacity-80 transition-opacity"
-              >
-                Explore the collection <i className="ri-arrow-right-line" />
-              </Link>
-            </AnimatedSection>
-            <AnimatedSection className="order-1 lg:order-2 relative">
-              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
-                <Image
-                  src="/Whisk_743db4f33bd7ec08b0f46aec28e929cfdr.jpeg"
-                  alt="The Perfume Empire — curated fragrances"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-2/3 h-24 bg-white/90 backdrop-blur rounded-xl shadow-lg border border-gray-100 flex items-center justify-center p-4">
-                <span className="text-sm text-gray-500 font-light">East Legon · Near America House</span>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
