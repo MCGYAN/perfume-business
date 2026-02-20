@@ -351,7 +351,7 @@ export default function Home() {
                     {/* Category Title */}
                     <div className="overflow-hidden">
                       <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-[0.9] mb-3 transform transition-transform duration-700 ease-out group-hover:-translate-y-2 drop-shadow-xl">
-                        {category.display_name || category.name}
+                        {category.name}
                       </h3>
                     </div>
 
