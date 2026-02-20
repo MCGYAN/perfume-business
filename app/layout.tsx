@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://tiwaperfumestyle.com';
 
-// Favicon & OG: uses tiwa logo.png from public
+// Favicon & OG: uses logo.png from public
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/tiwa logo.png', sizes: 'any', type: 'image/png' },
+      { url: '/logo.png', sizes: 'any', type: 'image/png' },
     ],
-    shortcut: '/tiwa logo.png',
-    apple: '/tiwa logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   manifest: '/manifest.json',
   appleWebApp: {
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     siteName: "The Perfume Empire",
     images: [
       {
-        url: "/tiwa logo.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "The Perfume Empire — Premium Fragrances",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Perfume Empire | Premium Fragrances",
     description: "Premium fragrances at East Legon. Wholesale & retail. 055 396 7658.",
-    images: ["/tiwa logo.png"],
+    images: ["/logo.png"],
   },
   alternates: {
     canonical: siteUrl,
@@ -120,12 +120,12 @@ export default function RootLayout({
         <meta name="msapplication-tap-highlight" content="no" />
 
         {/* Favicon from public folder */}
-        <link rel="icon" href="/tiwa logo.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/tiwa logo.png" />
+        <link rel="icon" href="/logo.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/logo.png" />
 
         {/* Apple Touch Icons from public */}
-        <link rel="apple-touch-icon" href="/tiwa logo.png" />
-        <link rel="apple-touch-startup-image" href="/tiwa logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="apple-touch-startup-image" href="/logo.png" />
 
         <link
           href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
@@ -145,7 +145,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "The Perfume Empire",
               "url": siteUrl,
-              "logo": siteUrl + "/tiwa%20logo.png",
+              "logo": siteUrl + "/logo.png",
               "description": "Premium fragrances at East Legon, near America House. Wholesale & retail.",
               "address": {
                 "@type": "PostalAddress",

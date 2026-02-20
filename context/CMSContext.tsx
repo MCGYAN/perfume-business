@@ -69,7 +69,7 @@ interface CMSContextType {
 const defaultSettings: SiteSettings = {
     site_name: 'The Perfume Empire',
     site_tagline: 'Premium fragrances — East Legon. Wholesale & retail.',
-    site_logo: '/tiwa logo.png',
+    site_logo: '/logo.png',
     contact_email: 'tiwaperfumestyle@gmail.com',
     contact_phone: '0553967658',
     contact_whatsapp: '0553967658',
@@ -101,7 +101,7 @@ export function CMSProvider({ children }: { children: ReactNode }) {
     const [settings, setSettings] = useState<SiteSettings>({
         site_name: 'The Perfume Empire',
         site_tagline: 'Premium fragrances — East Legon. Wholesale & retail.',
-        site_logo: '/tiwa logo.png',
+        site_logo: '/logo.png',
         contact_email: 'tiwaperfumestyle@gmail.com',
         contact_phone: '0553967658',
         contact_whatsapp: '0553967658',

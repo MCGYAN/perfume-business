@@ -30,7 +30,7 @@ export function generateMetadata({
   noindex = false
 }: SEOProps): Metadata {
   const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://tiwaperfumestyle.com';
-  const defaultOgImage = `${siteUrl}/tiwa%20logo.png`;
+  const defaultOgImage = `${siteUrl}/logo.png`;
   const resolvedOgImage = ogImage || defaultOgImage;
   const siteName = 'The Perfume Empire';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
@@ -167,8 +167,8 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: 'TIWAA PERFUME STYLE HOUSE',
     url: siteUrl,
-    logo: `${siteUrl}/tiwa%20logo.png`,
-    image: `${siteUrl}/tiwa%20logo.png`,
+    logo: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/logo.png`,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+233545010949',

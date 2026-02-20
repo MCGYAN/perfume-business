@@ -32,7 +32,7 @@ export default function Footer() {
   const contactPhone = getSetting('contact_phone') || '0553967658';
   const contactWhatsapp = getSetting('contact_whatsapp') || '0553967658';
   const contactAddress = getSetting('contact_address') || 'East Legon, near America House';
-  const siteLogo = getSetting('site_logo') || '/tiwa logo.png';
+  const siteLogo = getSetting('site_logo') || '/logo.png';
   const socialFacebook = getSetting('social_facebook') || '';
   const socialInstagram = getSetting('social_instagram') || '';
   const socialTwitter = getSetting('social_twitter') || '';
@@ -54,7 +54,7 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-1 space-y-5">
               <Link href="/" className="inline-block group">
-                <img src={siteLogo} alt={siteName} className="h-14 w-auto object-contain group-hover:opacity-90 transition-opacity" />
+                <img src={siteLogo} alt={siteName} className="h-12 w-auto max-w-[220px] object-contain group-hover:opacity-90 transition-opacity" />
               </Link>
               <p className="text-white/60 leading-relaxed text-sm font-light">
                 {siteTagline}

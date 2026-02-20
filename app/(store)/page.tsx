@@ -88,7 +88,7 @@ export default function Home() {
 
   const getHeroImage = () => {
     if (config.hero.backgroundImage) return config.hero.backgroundImage;
-    return "/tiwa logo.png";
+    return "/logo.png";
   };
 
   const renderBanners = () => {

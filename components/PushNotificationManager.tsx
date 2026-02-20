@@ -39,8 +39,8 @@ export default function PushNotificationManager() {
 
         new Notification('Notifications Enabled! 🎉', {
           body: 'You will now receive updates about orders, deals, and more.',
-          icon: '/tiwa logo.png',
-          badge: '/tiwa logo.png',
+          icon: '/logo.png',
+          badge: '/logo.png',
           tag: 'welcome-notification'
         });
       }

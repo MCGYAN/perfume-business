@@ -80,7 +80,7 @@ export default function AboutPage() {
             <div className="order-2 lg:order-1 relative">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
                 <img
-                  src="/tiwa logo.png"
+                  src="/logo.png"
                   alt={siteName}
                   className="w-full h-full object-contain p-12 bg-white"
                 />

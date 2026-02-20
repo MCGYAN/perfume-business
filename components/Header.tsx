@@ -19,7 +19,7 @@ export default function Header() {
   const { getSetting } = useCMS();
 
   const siteName = getSetting('site_name') || 'The Perfume Empire';
-  const headerLogo = getSetting('site_logo') || '/tiwa logo.png';
+  const headerLogo = getSetting('site_logo') || '/logo.png';
 
   useEffect(() => {
     // Wishlist logic
@@ -80,7 +80,7 @@ export default function Header() {
                   className="flex items-center select-none"
                   aria-label="Go to homepage"
                 >
-                  <img src={headerLogo} alt={siteName} className="h-9 md:h-11 w-auto object-contain" />
+                  <img src={headerLogo} alt={siteName} className="h-9 md:h-11 w-auto max-w-[160px] sm:max-w-[200px] object-contain" />
                 </Link>
               </div>
 
