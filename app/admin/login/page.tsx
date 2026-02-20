@@ -52,17 +52,17 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-stone-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
-            <img src="/tiwa logo.png" alt="TIWAA PERFUME STYLE HOUSE" className="h-12 w-auto mx-auto" />
+            <img src="/tiwa logo.png" alt="The Perfume Empire" className="h-12 w-auto mx-auto" />
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mt-6 mb-2">Admin Login</h1>
-          <p className="text-gray-600">Sign in to access the admin dashboard</p>
+          <h1 className="font-serif text-2xl font-semibold text-gray-900 mt-6 mb-2">Admin</h1>
+          <p className="text-gray-500 text-sm font-light">Sign in to access the dashboard</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8">
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-3">
               <i className="ri-error-warning-line text-red-600 text-xl mt-0.5"></i>
@@ -85,7 +85,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="tiwaperfumestyle@gmail.com"
+                  placeholder="admin@example.com"
                   required
                 />
               </div>
@@ -118,7 +118,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={isLoading || verifying}
-              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-xl font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
               {isLoading || verifying ? (
                 <span className="flex items-center justify-center space-x-2">

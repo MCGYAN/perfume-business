@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Supabase storage (admin images)
+
+If you see **"Bucket not found"** when uploading category or product images, create a **public** storage bucket named `products` in your Supabase project (Storage → New bucket). See [SUPABASE_STORAGE.md](./SUPABASE_STORAGE.md) for steps.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

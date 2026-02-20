@@ -17,24 +17,24 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://tiwaperfumestyle.com
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "TIWAA PERFUME STYLE HOUSE | Perfumes Wholesale & Retail — Satellite, Accra",
-    template: "%s | TIWAA PERFUME STYLE HOUSE"
+    default: "The Perfume Empire | Premium Fragrances — East Legon",
+    template: "%s | The Perfume Empire"
   },
-  description: "I sell perfumes — wholesale and retail. Satellite, Accra. Call 054 501 0949 · WhatsApp 055 416 9992.",
+  description: "Premium fragrances at East Legon, near America House. Wholesale & retail. 055 396 7658. Instagram @Theperfumempire · TikTok @Theperfume_empire.",
   keywords: [
-    "TIWAA PERFUME STYLE HOUSE",
+    "The Perfume Empire",
     "perfumes Ghana",
-    "wholesale perfumes Accra",
+    "East Legon perfumes",
+    "wholesale fragrances Accra",
     "retail perfumes",
-    "Satellite Accra",
+    "America House",
     "fragrance Ghana",
-    "Ghana perfumes",
-    "Accra perfume shop"
+    "Ghana perfumes"
   ],
-  authors: [{ name: "TIWAA PERFUME STYLE HOUSE" }],
-  creator: "TIWAA PERFUME STYLE HOUSE",
-  publisher: "TIWAA PERFUME STYLE HOUSE",
-  applicationName: "TIWAA PERFUME STYLE HOUSE",
+  authors: [{ name: "The Perfume Empire" }],
+  creator: "The Perfume Empire",
+  publisher: "The Perfume Empire",
+  applicationName: "The Perfume Empire",
   referrer: "origin-when-cross-origin",
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'TIWAA PERFUME',
+    title: 'The Perfume Empire',
   },
   formatDetection: {
     telephone: true,
@@ -72,23 +72,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GH",
     url: siteUrl,
-    title: "TIWAA PERFUME STYLE HOUSE | Perfumes Wholesale & Retail — Satellite, Accra",
-    description: "I sell perfumes — wholesale and retail. Satellite, Accra. Call 054 501 0949 · WhatsApp 055 416 9992.",
-    siteName: "TIWAA PERFUME STYLE HOUSE",
+    title: "The Perfume Empire | Premium Fragrances — East Legon",
+    description: "Premium fragrances at East Legon, near America House. Wholesale & retail. 055 396 7658.",
+    siteName: "The Perfume Empire",
     images: [
       {
         url: "/tiwa logo.png",
         width: 1200,
         height: 630,
-        alt: "TIWAA PERFUME STYLE HOUSE — Perfumes Wholesale & Retail",
+        alt: "The Perfume Empire — Premium Fragrances",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TIWAA PERFUME STYLE HOUSE | Perfumes Wholesale & Retail",
-    description: "I sell perfumes — wholesale and retail. Satellite, Accra. Call 054 501 0949 · WhatsApp 055 416 9992.",
+    title: "The Perfume Empire | Premium Fragrances",
+    description: "Premium fragrances at East Legon. Wholesale & retail. 055 396 7658.",
     images: ["/tiwa logo.png"],
   },
   alternates: {
@@ -114,7 +114,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="TIWAA PERFUME" />
+        <meta name="apple-mobile-web-app-title" content="The Perfume Empire" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#2563eb" />
         <meta name="msapplication-tap-highlight" content="no" />
@@ -143,21 +143,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "TIWAA PERFUME STYLE HOUSE",
+              "name": "The Perfume Empire",
               "url": siteUrl,
               "logo": siteUrl + "/tiwa%20logo.png",
-              "description": "I sell perfumes — wholesale and retail. Satellite, Accra.",
+              "description": "Premium fragrances at East Legon, near America House. Wholesale & retail.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "GH",
                 "addressLocality": "Accra",
-                "streetAddress": "Satellite, Accra"
+                "streetAddress": "East Legon, near America House"
               },
-              "telephone": "+233545010949",
+              "telephone": "+233553967658",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "telephone": "+233545010949",
+                "telephone": "+233553967658",
                 "availableLanguage": "English"
               }
             })

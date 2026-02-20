@@ -18,7 +18,7 @@ export default function Header() {
   const { cartCount, isCartOpen, setIsCartOpen } = useCart();
   const { getSetting } = useCMS();
 
-  const siteName = getSetting('site_name') || 'TIWAA PERFUME STYLE HOUSE';
+  const siteName = getSetting('site_name') || 'The Perfume Empire';
   const headerLogo = getSetting('site_logo') || '/tiwa logo.png';
 
   useEffect(() => {

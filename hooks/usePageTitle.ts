@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-const SITE_NAME = 'TIWAA PERFUME STYLE HOUSE';
+const SITE_NAME = 'The Perfume Empire';
 
 export function usePageTitle(title: string) {
   useEffect(() => {

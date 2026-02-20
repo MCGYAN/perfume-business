@@ -39,13 +39,12 @@ export default function Home() {
     banners?: Array<{ text: string; active: boolean }>;
   } = {
     hero: {
-      headline: 'TIWAA PERFUME STYLE HOUSE — Perfumes Wholesale & Retail',
-      subheadline: 'Curated fragrances at competitive prices. Satellite, Accra. For resellers and individual customers across Ghana.',
+      headline: 'The Perfume Empire — Premium Fragrances',
+      subheadline: 'Curated fragrances at East Legon, near America House. Wholesale & retail for resellers and customers across Ghana.',
       primaryButtonText: 'Shop Collections',
       primaryButtonLink: '/shop',
       secondaryButtonText: 'Our Story',
       secondaryButtonLink: '/about',
-      // backgroundImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop' // Optional override
     },
     banners: [
       { text: '🚚 Free delivery on orders over GH₵ 500 within Accra!', active: false },
@@ -264,40 +263,55 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                id: 'fresh',
-                name: 'Fresh',
-                subtitle: 'Cool, Clean, Airy',
-                slug: 'fresh',
+                id: 'mens',
+                name: "Men's Fragrances",
+                subtitle: 'Bold, confident, timeless',
+                slug: 'mens',
                 image: '/Whisk_4e28dc6bf0d6be98458435c0c2950e3ddr.jpeg',
                 tint: 'bg-blue-900'
               },
               {
-                id: 'floral',
-                name: 'Floral',
-                subtitle: 'Romantic, Soft, Elegant',
-                slug: 'floral',
+                id: 'womens',
+                name: "Women's Fragrances",
+                subtitle: 'Romantic, soft, elegant',
+                slug: 'womens',
                 image: '/Whisk_50c2f050b440b4b95064c372c1ec7ee1dr.jpeg',
                 tint: 'bg-rose-900'
               },
               {
-                id: 'oriental',
-                name: 'Oriental',
-                display_name: 'Oriental (Amber)',
-                subtitle: 'Warm, Opulent, Spicy',
-                slug: 'oriental-amber',
+                id: 'unisex',
+                name: 'Unisex Collection',
+                subtitle: 'For everyone, every mood',
+                slug: 'unisex',
                 image: '/Whisk_64e2698834d1476801a4b505b30c324bdr.jpeg',
                 tint: 'bg-amber-900'
               },
               {
-                id: 'woody',
-                name: 'Woody',
-                subtitle: 'Earthy, Refined, Natural',
-                slug: 'woody',
+                id: 'oud',
+                name: 'Oud Collection',
+                subtitle: 'Rich, opulent, lasting',
+                slug: 'oud',
                 image: '/Whisk_6ec7df94ec3ca85b49644810b7fab2ecdr.jpeg',
                 tint: 'bg-stone-900'
+              },
+              {
+                id: 'gift-sets',
+                name: 'Gift Sets',
+                subtitle: 'Curated for gifting',
+                slug: 'gift-sets',
+                image: '/Whisk_6f28ce8873000718f834bc0d63e3bc87dr.jpeg',
+                tint: 'bg-rose-900'
+              },
+              {
+                id: 'new-arrivals',
+                name: 'New Arrivals',
+                subtitle: 'Just landed',
+                slug: 'new-arrivals',
+                image: '/Whisk_835b10a10eab0caa2c7419d4a6e01102dr.jpeg',
+                tint: 'bg-blue-900'
               }
             ].map((category) => (
               <Link href={`/shop?category=${category.slug}`} key={category.id} className="group block h-full w-full">
@@ -369,11 +383,50 @@ export default function Home() {
       </section>
 
 
+      {/* Featured Collection — editorial storytelling */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-stone-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.08),transparent)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <AnimatedSection className="order-2 lg:order-1">
+              <span className="text-xs font-semibold tracking-[0.25em] text-gray-400 uppercase">The Collection</span>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-3 mb-6 leading-tight">
+                Crafted for <span className="italic text-gray-500">lasting impression</span>
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-lg mb-8">
+                Each fragrance tells a story. We curate bottles that blend premium ingredients with distinct character — from fresh and clean to deep and sensual.
+              </p>
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 text-gray-900 font-medium border-b-2 border-gray-900 pb-1 hover:opacity-80 transition-opacity"
+              >
+                Explore the collection <i className="ri-arrow-right-line" />
+              </Link>
+            </AnimatedSection>
+            <AnimatedSection className="order-1 lg:order-2 relative">
+              <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
+                <Image
+                  src="/Whisk_743db4f33bd7ec08b0f46aec28e929cfdr.jpeg"
+                  alt="The Perfume Empire — curated fragrances"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-2/3 h-24 bg-white/90 backdrop-blur rounded-xl shadow-lg border border-gray-100 flex items-center justify-center p-4">
+                <span className="text-sm text-gray-500 font-light">East Legon · Near America House</span>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Products */}
-      <section className="py-16 md:py-24 bg-stone-50">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4">Featured Products</h2>
+            <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Curated Picks</span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-3 mb-4">Featured Products</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">Top picks from our latest arrivals</p>
           </AnimatedSection>
 
@@ -433,11 +486,52 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
+              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-300"
             >
               View All Products
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Brand Story Teaser */}
+      <section className="py-20 md:py-28 bg-stone-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <AnimatedSection>
+            <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Our Philosophy</span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 mt-3 mb-6 leading-tight">
+              More than a scent — an <span className="italic text-gray-500">experience</span>
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              The Perfume Empire is built on a belief that fragrance should feel personal and premium. From East Legon, we bring you a curated selection of authentic perfumes for every moment — wholesale and retail.
+            </p>
+            <Link href="/about" className="inline-block mt-8 text-gray-900 font-medium border-b border-gray-900 pb-1 hover:opacity-70 transition-opacity">
+              Read our story
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Kind Words</span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-gray-900 mt-3">What our customers say</h2>
+          </AnimatedSection>
+          <AnimatedGrid className="grid md:grid-cols-3 gap-8">
+            {[
+              { quote: 'Quality and packaging are top-notch. Will definitely order again.', name: 'Ama K.', role: 'Retail customer' },
+              { quote: 'Best wholesale prices I\'ve found. Fast delivery and genuine products.', name: 'David M.', role: 'Reseller' },
+              { quote: 'The fragrances last all day. Exactly what I was looking for.', name: 'Sarah T.', role: 'Customer' }
+            ].map((t, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-stone-50/80 border border-gray-100 hover:border-gray-200 transition-colors">
+                <p className="text-gray-700 leading-relaxed mb-6 font-light">"{t.quote}"</p>
+                <p className="font-semibold text-gray-900">{t.name}</p>
+                <p className="text-sm text-gray-500">{t.role}</p>
+              </div>
+            ))}
+          </AnimatedGrid>
         </div>
       </section>
 

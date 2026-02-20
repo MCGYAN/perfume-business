@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import LazyImage from './LazyImage';
 import { useCart } from '@/context/CartContext';
+import { useWishlist } from '@/context/WishlistContext';
 
 // Map common color names to hex values for swatches
 const COLOR_MAP: Record<string, string> = {
@@ -54,6 +55,8 @@ interface ProductCardProps {
   hasVariants?: boolean;
   minVariantPrice?: number;
   colorVariants?: ColorVariant[];
+  /** Optional scent notes for hover reveal (e.g. "Bergamot, Jasmine, Sandalwood") */
+  scentNotes?: string;
 }
 
 export default function ProductCard({
@@ -71,49 +74,81 @@ export default function ProductCard({
   moq = 1,
   hasVariants = false,
   minVariantPrice,
-  colorVariants = []
+  colorVariants = [],
+  scentNotes
 }: ProductCardProps) {
   const { addToCart } = useCart();
+  const wishlist = useWishlist();
   const [activeColor, setActiveColor] = useState<string | null>(null);
+  const [hoverScent, setHoverScent] = useState(false);
   const displayPrice = hasVariants && minVariantPrice ? minVariantPrice : price;
   const discount = originalPrice ? Math.round((1 - displayPrice / originalPrice) * 100) : 0;
   const MAX_SWATCHES = 5;
+  const isWishlisted = wishlist?.isInWishlist(id) ?? false;
 
   const formatPrice = (val: number) => `GH\u20B5${val.toFixed(2)}`;
 
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isWishlisted) wishlist?.removeFromWishlist(id);
+    else wishlist?.addToWishlist({ id, name, price, originalPrice, image, rating, reviewCount, badge, inStock, slug });
+  };
+
   return (
-    <div className="group bg-transparent rounded-lg h-full flex flex-col hover-lift">
-      <Link href={`/product/${slug}`} className="relative block aspect-[3/4] overflow-hidden rounded-xl bg-gray-100 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+    <div className="group bg-white/70 backdrop-blur-sm rounded-2xl h-full flex flex-col border border-gray-100/80 shadow-sm hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden">
+      <Link
+        href={`/product/${slug}`}
+        className="relative block aspect-[3/4] overflow-hidden bg-gray-50 mb-4"
+        onMouseEnter={() => setHoverScent(true)}
+        onMouseLeave={() => setHoverScent(false)}
+      >
         <LazyImage
           src={image}
           alt={name}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
         />
 
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
+        <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
           {badge && (
-            <span className="bg-white/90 backdrop-blur text-gray-900 border border-gray-100 text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-md shadow-sm">
+            <span className="bg-white/95 backdrop-blur text-gray-900 border border-gray-100 text-[10px] uppercase tracking-wider font-semibold px-3 py-1.5 rounded-full shadow-sm">
               {badge}
             </span>
           )}
           {discount > 0 && (
-            <span className="bg-red-50 text-red-700 border border-red-100 text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-md shadow-sm">
+            <span className="bg-rose-500/90 text-white text-[10px] uppercase tracking-wider font-semibold px-3 py-1.5 rounded-full shadow-sm">
               -{discount}%
             </span>
           )}
         </div>
 
+        <button
+          type="button"
+          onClick={handleWishlistToggle}
+          className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-sm border border-gray-100 text-gray-600 hover:text-rose-500 hover:border-rose-200 transition-all duration-300 opacity-0 group-hover:opacity-100"
+          aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+        >
+          <i className={isWishlisted ? 'ri-heart-fill text-rose-500' : 'ri-heart-line'} />
+        </button>
+
+        {scentNotes && (
+          <div className={`absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white text-xs font-light tracking-wide transition-all duration-300 ${hoverScent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+            <span className="text-white/70 uppercase tracking-widest">Notes</span>
+            <p className="mt-1">{scentNotes}</p>
+          </div>
+        )}
+
         {!inStock && (
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center">
-            <span className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium">Out of Stock</span>
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center">
+            <span className="bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-medium">Out of Stock</span>
           </div>
         )}
 
         {inStock && (
-          <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 hidden lg:block">
+          <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 hidden lg:block z-10">
             {hasVariants ? (
-              <span className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm">
-                <i className="ri-list-check"></i>
+              <span className="w-full bg-gray-900 text-white py-3 rounded-full font-medium shadow-lg flex items-center justify-center gap-2 text-sm">
+                <i className="ri-list-check" />
                 <span>Select Options</span>
               </span>
             ) : (
@@ -122,9 +157,9 @@ export default function ProductCard({
                   e.preventDefault();
                   addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
                 }}
-                className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm"
+                className="w-full bg-gray-900 text-white hover:bg-gray-800 py-3 rounded-full font-medium shadow-lg transition-all flex items-center justify-center gap-2 text-sm"
               >
-                <i className="ri-shopping-cart-2-line"></i>
+                <i className="ri-shopping-cart-2-line" />
                 <span>{moq > 1 ? `Add ${moq} to Cart` : 'Quick Add'}</span>
               </button>
             )}
@@ -132,12 +167,20 @@ export default function ProductCard({
         )}
       </Link>
 
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow px-4 pb-4">
         <Link href={`/product/${slug}`}>
-          <h3 className="font-serif text-lg leading-tight text-gray-900 mb-1 group-hover:text-blue-800 transition-colors line-clamp-2">
+          <h3 className="font-serif text-lg leading-tight text-gray-900 mb-1 group-hover:text-gray-600 transition-colors line-clamp-2">
             {name}
           </h3>
         </Link>
+
+        {(rating > 0 || reviewCount > 0) && (
+          <div className="flex items-center gap-1.5 mb-2 text-gray-400">
+            <span className="text-amber-500 text-sm">★</span>
+            <span className="text-sm font-light">{Number(rating).toFixed(1)}</span>
+            {reviewCount > 0 && <span className="text-xs text-gray-400">({reviewCount})</span>}
+          </div>
+        )}
 
         {colorVariants.length > 0 && (
           <div className="flex items-center gap-1.5 mb-2">
@@ -149,10 +192,8 @@ export default function ProductCard({
                   e.preventDefault();
                   setActiveColor(activeColor === color.name ? null : color.name);
                 }}
-                className={`w-4 h-4 rounded-full border transition-all duration-200 flex-shrink-0 ${
-                  activeColor === color.name
-                    ? 'ring-2 ring-offset-1 ring-blue-600 scale-110'
-                    : 'hover:scale-110'
+                className={`w-4 h-4 rounded-full border-2 transition-all duration-200 flex-shrink-0 ${
+                  activeColor === color.name ? 'ring-2 ring-offset-1 ring-gray-400 scale-110' : 'hover:scale-110'
                 } ${color.hex === '#FFFFFF' ? 'border-gray-300' : 'border-transparent'}`}
                 style={{ backgroundColor: color.hex }}
               />
@@ -163,7 +204,7 @@ export default function ProductCard({
           </div>
         )}
 
-        <div className="flex items-baseline space-x-2 mb-2">
+        <div className="flex items-baseline gap-2 mb-3">
           {hasVariants && minVariantPrice ? (
             <span className="text-gray-900 font-semibold">From {formatPrice(minVariantPrice)}</span>
           ) : (

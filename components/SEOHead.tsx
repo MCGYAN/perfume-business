@@ -16,8 +16,8 @@ interface SEOProps {
 }
 
 export function generateMetadata({
-  title = 'TIWAA PERFUME STYLE HOUSE — Perfumes Wholesale & Retail',
-  description = 'I sell perfumes — wholesale and retail. Satellite, Accra. Call 054 501 0949 · WhatsApp 055 416 9992.',
+  title = 'The Perfume Empire — Premium Fragrances',
+  description = 'Premium fragrances at East Legon, near America House. Wholesale & retail. 055 396 7658.',
   keywords = [],
   ogImage,
   ogType = 'website',
@@ -32,7 +32,7 @@ export function generateMetadata({
   const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://tiwaperfumestyle.com';
   const defaultOgImage = `${siteUrl}/tiwa%20logo.png`;
   const resolvedOgImage = ogImage || defaultOgImage;
-  const siteName = 'TIWAA PERFUME STYLE HOUSE';
+  const siteName = 'The Perfume Empire';
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
   const defaultKeywords = [

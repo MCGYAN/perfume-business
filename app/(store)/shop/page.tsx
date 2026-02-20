@@ -246,9 +246,9 @@ function ShopContent() {
                             setPage(1);
                             setIsFilterOpen(false);
                           }}
-                          className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${selectedCategory === 'all'
-                            ? 'bg-blue-100 text-blue-700 font-medium'
-                            : 'text-gray-700 hover:bg-gray-100'
+                          className={`w-full text-left px-4 py-2.5 rounded-xl transition-colors ${selectedCategory === 'all'
+                            ? 'bg-gray-900 text-white font-medium'
+                            : 'text-gray-700 hover:bg-gray-50'
                             }`}
                         >
                           All Products
@@ -269,9 +269,9 @@ function ShopContent() {
                                   setPage(1);
                                   // Don't close filter immediately if exploring hierarchy
                                 }}
-                                className={`w-full text-left px-4 py-2 rounded-lg transition-colors flex justify-between items-center ${isSelected
-                                  ? 'bg-blue-50 text-blue-700 font-medium'
-                                  : 'text-gray-700 hover:bg-gray-100'
+                                className={`w-full text-left px-4 py-2.5 rounded-xl transition-colors flex justify-between items-center ${isSelected
+                                  ? 'bg-gray-900 text-white font-medium'
+                                  : 'text-gray-700 hover:bg-gray-50'
                                   }`}
                               >
                                 <span>{parent.name}</span>
@@ -289,7 +289,7 @@ function ShopContent() {
                                         setIsFilterOpen(false);
                                       }}
                                       className={`w-full text-left px-4 py-1.5 rounded-lg text-sm transition-colors ${selectedCategory === child.slug
-                                        ? 'text-blue-700 font-medium bg-blue-50'
+                                        ? 'text-gray-900 font-medium bg-gray-100'
                                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                                         }`}
                                     >

@@ -73,14 +73,14 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6">
+    <main className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-gray-50 flex items-center justify-center py-12 px-4 sm:px-6">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to your account to continue</p>
+          <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-gray-900 mb-2">Welcome back</h1>
+          <p className="text-gray-500 font-light">Sign in to your account to continue</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-8">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-8 md:p-10">
           {authError && (
             <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
               {authError}
@@ -114,7 +114,7 @@ export default function LoginPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className={`w-full px-4 py-3 pr-12 border-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.password ? 'border-red-500' : 'border-gray-300'
+                  className={`w-full px-4 py-3.5 pr-12 border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900/10 focus:border-gray-400 transition-colors ${errors.password ? 'border-red-400' : ''
                     }`}
                   placeholder="Enter your password"
                 />
@@ -149,7 +149,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading || verifying}
-              className="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
+              className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3.5 rounded-xl font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
             >
               {isLoading || verifying ? (
                 <span className="flex items-center justify-center">

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { useCMS } from '@/context/CMSContext';
 import PageHero from '@/components/PageHero';
 import { usePageTitle } from '@/hooks/usePageTitle';
@@ -9,206 +8,132 @@ import { usePageTitle } from '@/hooks/usePageTitle';
 export default function AboutPage() {
   usePageTitle('Our Story');
   const { getSetting } = useCMS();
-  const [activeTab, setActiveTab] = useState('story');
-
-  const siteName = getSetting('site_name') || 'TIWAA PERFUME STYLE HOUSE';
-
-  const values = [
-    {
-      icon: 'ri-verified-badge-line',
-      title: 'Verified Quality',
-      description: 'Every perfume is personally inspected before it reaches you. We focus on authentic fragrances and quality you can trust.'
-    },
-    {
-      icon: 'ri-money-dollar-circle-line',
-      title: 'Unbeatable Prices',
-      description: 'Competitive wholesale and retail prices. We pass the savings to resellers and individual customers.'
-    },
-    {
-      icon: 'ri-global-line',
-      title: 'Curated Fragrances',
-      description: 'A handpicked range of perfumes for every taste. Genuine products at great prices.'
-    },
-    {
-      icon: 'ri-truck-line',
-      title: 'Nationwide Delivery',
-      description: 'Fast and reliable delivery across Ghana. Based in Satellite, Accra, we ship with care and speed.'
-    }
-  ];
+  const siteName = getSetting('site_name') || 'The Perfume Empire';
 
   return (
     <div className="min-h-screen bg-white">
       <PageHero
-        title="More Than Just A Brand"
-        subtitle="From Satellite, Accra — perfumes wholesale and retail."
+        title="Our Story"
+        subtitle="East Legon, near America House — where fragrance meets craft."
         backgroundImage="/Whisk_743db4f33bd7ec08b0f46aec28e929cfdr.jpeg"
       />
 
-      {/* Who We Are - Hero section */}
-      <section className="py-20 bg-white overflow-hidden">
+      {/* Brand Story */}
+      <section className="py-20 md:py-28 bg-white overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Brand Story</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-gray-900 mt-3 mb-8 leading-tight">
+            More than a scent — an <span className="italic text-gray-500">emotional connection</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <strong>{siteName}</strong> began with a simple belief: everyone deserves access to premium fragrances without compromise. Based in East Legon, near America House, we curate authentic perfumes for resellers and individual customers across Ghana — combining quality, value, and a personal touch.
+          </p>
+        </div>
+      </section>
+
+      {/* Craftsmanship — editorial split */}
+      <section className="py-20 md:py-28 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6">Who We Are</h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  <strong>TIWAA PERFUME STYLE HOUSE</strong> is your premier destination for perfumes, both wholesale and retail. Based in Satellite, Accra, we offer a curated range of fragrances at competitive prices for resellers and individual customers.
-                </p>
-                <p>
-                  We focus on quality and value. Whether you're stocking up for your business or shopping for yourself, we handpick our perfumes to deliver genuine products and great prices.
-                </p>
-                <div className="pt-4">
-                  <Link
-                    href="#our-story"
-                    className="inline-flex items-center text-blue-800 font-medium hover:text-blue-900 transition-colors group"
-                  >
-                    <span className="border-b border-transparent group-hover:border-blue-900 transition-colors">Read Our Full Story</span>
-                    <i className="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"></i>
-                  </Link>
-                </div>
-              </div>
+              <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Craftsmanship</span>
+              <h2 className="font-serif text-3xl md:text-4xl text-gray-900 mt-3 mb-6 leading-tight">
+                How we create your fragrance experience
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Every bottle we offer is selected with care. We work with trusted sources to bring you genuine fragrances — from fresh and clean to deep and sensual. Our process focuses on authenticity, lasting quality, and fair pricing for both wholesale and retail.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                We inspect and verify our stock so you can sell or wear with confidence. No shortcuts — just real perfumes that tell a story.
+              </p>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
                 <img
                   src="/Whisk_743db4f33bd7ec08b0f46aec28e929cfdr.jpeg"
-                  alt="TIWAA PERFUME STYLE HOUSE — Premium perfumes"
+                  alt={`${siteName} — craftsmanship`}
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl max-w-xs border border-gray-100">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700">
-                    <i className="ri-medal-line text-xl"></i>
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">Premium Quality</p>
-                    <p className="text-sm text-gray-500">Authentic Fragrances</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div id="our-story" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex border-b border-gray-200 mb-12 justify-center">
-          <button
-            onClick={() => setActiveTab('story')}
-            className={`px-4 py-2 sm:px-8 sm:py-4 font-medium transition-colors text-lg cursor-pointer ${activeTab === 'story'
-              ? 'text-blue-700 border-b-4 border-blue-700 font-bold'
-              : 'text-gray-500 hover:text-gray-700'
-              }`}
-          >
-            Our Story
-          </button>
-          <button
-            onClick={() => setActiveTab('mission')}
-            className={`px-4 py-2 sm:px-8 sm:py-4 font-medium transition-colors text-lg cursor-pointer ${activeTab === 'mission'
-              ? 'text-blue-700 border-b-4 border-blue-700 font-bold'
-              : 'text-gray-500 hover:text-gray-700'
-              }`}
-          >
-            Our Mission
-          </button>
+      {/* Ingredient Philosophy */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Ingredient Philosophy</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-gray-900 mt-3 mb-8 leading-tight">
+            Premium oils & natural ingredients
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            We prioritise fragrances that use quality ingredients and lasting formulations. From natural essences to refined synthetics, every scent in our collection is chosen for its character, longevity, and wearability — so you get a premium experience at a fair price.
+          </p>
         </div>
+      </section>
 
-        {activeTab === 'story' && (
-          <div className="grid md:grid-cols-2 gap-16 items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">How It All Started</h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  <strong>TIWAA PERFUME STYLE HOUSE</strong> sells perfumes — wholesale and retail. Based in Satellite, Accra, we offer a curated range of fragrances at competitive prices for both resellers and individual customers.
-                </p>
-                <p>
-                  We focus on quality and value. Whether you're stocking up for your business or shopping for yourself, we handpick our perfumes to deliver genuine products and great prices.
-                </p>
-                <p>
-                  Call us on <strong>054 501 0949</strong> or WhatsApp <strong>055 416 9992</strong>. We're here to help with orders and enquiries.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-gray-100 relative flex items-center justify-center">
+      {/* Founder Vision */}
+      <section className="py-20 md:py-28 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
                 <img
                   src="/tiwa logo.png"
-                  alt="TIWAA PERFUME STYLE HOUSE"
-                  className="w-2/3 h-auto object-contain opacity-80"
+                  alt={siteName}
+                  className="w-full h-full object-contain p-12 bg-white"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                  <p className="text-white font-bold text-xl">TIWAA PERFUME STYLE HOUSE</p>
-                  <p className="text-blue-200">Perfumes · Wholesale & Retail · Satellite, Accra</p>
-                </div>
               </div>
-              {/* Decorative Element */}
-              <div className="absolute -z-10 top-10 -right-10 w-full h-full border-4 border-blue-100 rounded-2xl hidden md:block"></div>
             </div>
-          </div>
-        )}
-
-        {activeTab === 'mission' && (
-          <div className="grid md:grid-cols-2 gap-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-blue-50 p-10 rounded-3xl border border-blue-100">
-              <div className="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center mb-8 shadow-lg">
-                <i className="ri-store-2-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Everything in One Place</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                We stock a wide range of perfumes and fragrances. Our catalogue is constantly updated with new arrivals for both wholesale and retail customers.
+            <div className="order-1 lg:order-2">
+              <span className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">Founder Vision</span>
+              <h2 className="font-serif text-3xl md:text-4xl text-gray-900 mt-3 mb-6 leading-tight">
+                Built on trust and quality
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {siteName} was founded to bridge the gap between premium fragrances and everyday customers and resellers. We believe that great perfume should be accessible — whether you&apos;re building a business or treating yourself.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Our vision is simple: offer authentic, lasting fragrances with transparent pricing and reliable service from East Legon to all of Ghana.
               </p>
             </div>
-            <div className="bg-amber-50 p-10 rounded-3xl border border-amber-100">
-              <div className="w-16 h-16 bg-amber-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg">
-                <i className="ri-hand-heart-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Empowering Resellers</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                We support small businesses and resellers with competitive bulk pricing. Many of our products are available at wholesale rates, helping entrepreneurs across Ghana grow their own ventures.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Values Section */}
-      <div className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Shop With Us?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Trusted by hundreds of customers and resellers across Ghana.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                  <i className={`${value.icon} text-2xl text-blue-700`}></i>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Signature Experience */}
+      <section className="py-20 md:py-28 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs font-semibold tracking-[0.2em] text-white/50 uppercase">Signature Experience</span>
+          <h2 className="font-serif text-3xl md:text-4xl mt-3 mb-8 leading-tight">
+            What makes us different
+          </h2>
+          <p className="text-lg text-white/80 leading-relaxed mb-12">
+            Personal service, verified quality, and a curated range that fits every taste and budget. We&apos;re not just selling bottles — we&apos;re helping you find (or resell) the scent that defines a moment.
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 text-sm">
+            <span className="flex items-center gap-2"><i className="ri-check-line text-white/70" /> Authentic products</span>
+            <span className="flex items-center gap-2"><i className="ri-check-line text-white/70" /> Wholesale & retail</span>
+            <span className="flex items-center gap-2"><i className="ri-check-line text-white/70" /> East Legon, Accra</span>
+            <span className="flex items-center gap-2"><i className="ri-check-line text-white/70" /> Nationwide delivery</span>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <div className="bg-blue-900 py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to shop smarter?</h2>
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Browse our perfumes — wholesale and retail. Call 054 501 0949 or WhatsApp 055 416 9992.
-          </p>
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">Ready to find your scent?</h2>
+          <p className="text-gray-600 mb-8">Browse our collection or get in touch. Call <a href="tel:0553967658" className="font-medium text-gray-900 hover:underline">055 396 7658</a>.</p>
           <Link
             href="/shop"
-            className="inline-flex items-center gap-3 bg-white text-blue-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+            className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors"
           >
-            Start Shopping
-            <i className="ri-arrow-right-line"></i>
+            Shop now <i className="ri-arrow-right-line" />
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
