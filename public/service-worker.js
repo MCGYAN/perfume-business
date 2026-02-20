@@ -14,7 +14,12 @@ const STATIC_ASSETS = [
   '/account',
   '/categories',
   '/offline',
-  '/logo.png',
+  '/favicon.ico',
+  '/favicon-16x16.png',
+  '/favicon-32x32.png',
+  '/apple-touch-icon.png',
+  '/android-chrome-192x192.png',
+  '/android-chrome-512x512.png',
 ];
 
 // Cache size limits
@@ -224,8 +229,8 @@ self.addEventListener('push', (event) => {
   const data = event.data.json();
   const options = {
     body: data.body || 'New update from TIWAA PERFUME STYLE HOUSE',
-    icon: '/logo.png',
-    badge: '/logo.png',
+icon: '/android-chrome-192x192.png',
+      badge: '/android-chrome-192x192.png',
     vibrate: [100, 50, 100],
     data: {
       url: data.url || '/',
