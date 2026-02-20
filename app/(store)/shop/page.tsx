@@ -74,10 +74,9 @@ function ShopContent() {
               .select(`
                 *,
                 categories!inner(name, slug),
-                product_images!product_id(url, position),
+                product_images(url, position),
                 product_variants(id, name, price, quantity, option1, option2, image_url)
-              `, { count: 'exact' })
-              .order('position', { foreignTable: 'product_images', ascending: true });
+              `, { count: 'exact' });
 
             // Search
             if (search) {
@@ -163,13 +162,14 @@ function ShopContent() {
               }
             }
 
+            const sortedImages = (p.product_images || []).slice().sort((a: { position?: number }, b: { position?: number }) => (a.position ?? 0) - (b.position ?? 0));
             return {
               id: p.id,           // Product UUID for cart/orders
               slug: p.slug,       // Slug for navigation
               name: p.name,
               price: p.price,
               originalPrice: p.compare_at_price,
-              image: p.product_images?.[0]?.url || 'https://via.placeholder.com/800x800?text=No+Image',
+              image: sortedImages[0]?.url || 'https://via.placeholder.com/800x800?text=No+Image',
               rating: p.rating_avg || 0,
               reviewCount: 0, // Need to implement reviews relation
               badge: p.compare_at_price > p.price ? 'Sale' : undefined, // Simple badge logic
